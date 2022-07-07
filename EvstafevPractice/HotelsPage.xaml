@@ -1,0 +1,36 @@
+﻿<Page x:Class="EvstafevPractice.HotelsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EvstafevPractice"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HotelsPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="196*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="DGHotels" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название отеля" Binding="{Binding Name}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кол-во звезд" Binding="{Binding CountOfStars}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Country.Name}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество туров" Binding="{Binding Tours.Hotel}" Width="120"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="EditBtn" Click="EditBtn_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button  Grid.Row="1" Content="Добавить" VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="AddBtn" Margin="5,0,0,5" Click="AddBtn_Click">
+        </Button>
+        <Button Content="Удалить" Grid.Row="1" x:Name="DltBtn" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,5,5" Click="DltBtn_Click">
+        </Button>
+    </Grid>
+</Page>
